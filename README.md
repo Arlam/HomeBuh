@@ -10,7 +10,8 @@ to
 And change DB parameters.
 
 For running application:
-1. create mysql DB
+1. create mysql DB using 
+	/db/homebuh.sql
 2. run:
   mvn tomcat7:run
   mvn jetty:run
