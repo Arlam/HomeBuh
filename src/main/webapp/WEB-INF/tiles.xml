@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="layout" template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="title" type="string" />
+		<put-attribute name="menu" value="/WEB-INF/views/menu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="futer" value="/WEB-INF/views/futer.jsp" />
+	</definition>
+
+	<definition name="home" extends="layout">
+		<put-attribute name="title" value="label.home.title" />
+		<put-attribute name="body" value="/WEB-INF/views/home.jsp" />
+	</definition>
+
+	<definition name="accounts" extends="layout">
+		<put-attribute name="title" value="label.accounts.title" />
+		<put-attribute name="body" value="/WEB-INF/views/accounts.jsp" />
+	</definition>
+	
+	<definition name="addAccount" extends="layout">
+		<put-attribute name="title" value="label.account.title" />
+		<put-attribute name="body" value="/WEB-INF/views/addAccount.jsp" />
+	</definition>
+	
+	<definition name="payments" extends="layout">
+		<put-attribute name="title" value="label.payments.title" />
+		<put-attribute name="body" value="/WEB-INF/views/payments.jsp" />
+	</definition>
+	
+	<definition name="addPayment" extends="layout">
+		<put-attribute name="title" value="label.payment.title" />
+		<put-attribute name="body" value="/WEB-INF/views/addPayment.jsp" />
+	</definition>
+	
+</tiles-definitions>

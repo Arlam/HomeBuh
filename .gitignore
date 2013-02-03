@@ -1,0 +1,7 @@
+bin/
+target/
+.classpath
+.project
+.settings/
+loging.log
+src/main/webapp/WEB-INF/database.properties
