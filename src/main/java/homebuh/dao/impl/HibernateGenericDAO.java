@@ -1,12 +1,17 @@
 package homebuh.dao.impl;
 
+import homebuh.dao.Finder;
 import homebuh.dao.GenericDAO;
+import homebuh.entities.Account;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class HibernateGenericDAO<E extends Serializable> implements
@@ -52,4 +57,19 @@ public class HibernateGenericDAO<E extends Serializable> implements
 		sessionFactory.getCurrentSession().update(entity);
 	}
 
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<E> find(Finder criteriaType,
+			Map<String, Object> parameters) {
+		Criteria criteria = null;
+		switch (criteriaType) {
+		case FIND_ACTIVE_ACCOUNTS:
+			criteria = sessionFactory.getCurrentSession().createCriteria(
+					Account.class);
+			String ACC_TYPE = "status";
+			criteria.add(Restrictions.eq(ACC_TYPE, parameters.get(ACC_TYPE)));
+			break;
+		}
+		return criteria.list();
+	}
 }

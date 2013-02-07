@@ -1,6 +1,8 @@
 package homebuh.dao;
 
+
 import java.util.List;
+import java.util.Map;
 
 public interface GenericDAO<T> {
 
@@ -13,5 +15,7 @@ public interface GenericDAO<T> {
 	public void delete(T entity);
 
 	public void update(T entity);
+
+	public List<T> find(Finder criteria, Map<String, Object> params);
 
 }

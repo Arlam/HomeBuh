@@ -1,5 +1,6 @@
 package homebuh.controller;
 
+import homebuh.dao.Finder;
 import homebuh.entities.Account;
 import homebuh.entities.Payment;
 import homebuh.service.AccStatusService;
@@ -9,6 +10,7 @@ import homebuh.service.PaymentService;
 import java.beans.PropertyEditorSupport;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -78,7 +80,10 @@ public class AccountsController {
 
 	@RequestMapping(value = "/accounts")
 	public String getAccounts(ModelMap model) {
-		List<Account> accounts = accountService.getAccounts();
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("status", accStatusService.getAccountStatus(1));
+		List<Account> accounts = accountService.getAccounts(
+				Finder.FIND_ACTIVE_ACCOUNTS, params);
 		model.addAttribute("accounts", accounts);
 		return "accounts";
 	}

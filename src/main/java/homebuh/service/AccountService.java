@@ -1,9 +1,11 @@
 package homebuh.service;
 
 import homebuh.dao.AccountDAO;
+import homebuh.dao.Finder;
 import homebuh.entities.Account;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +21,12 @@ public class AccountService {
 	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public List<Account> getAccounts() {
 		return accountDAOImpl.getAll();
+	}
+
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+	public List<Account> getAccounts(Finder criteria,
+			Map<String, Object> map) {
+		return accountDAOImpl.find(criteria, map);
 	}
 
 	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
