@@ -5,7 +5,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,10 +19,10 @@ public class Payment implements Serializable {
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "account_from")
 	private Account accountFrom;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "account_to")
 	private Account accountTo;
 	@Column(name = "amount")
@@ -32,6 +31,9 @@ public class Payment implements Serializable {
 	private Date payDate;
 	@Column(name = "description", length = 255)
 	private String description;
+	@ManyToOne
+	@JoinColumn(name = "status")
+	private PayStatus status;
 
 	public Integer getId() {
 		return id;

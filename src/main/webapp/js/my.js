@@ -34,4 +34,8 @@ $().ready(function() {
     $( "#content" ).addClass("ui-widget-content");
     $( "#content" ).css("height", "100%");
 	$( "#menu" ).menu();
+	
+	$( "#tabs" ).tabs();
+	
+
 });

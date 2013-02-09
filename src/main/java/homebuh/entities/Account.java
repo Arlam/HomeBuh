@@ -28,6 +28,9 @@ public class Account implements Serializable {
 	@Column(name = "balance")
 	private float balance;
 	@ManyToOne
+	@JoinColumn(name = "type")
+	private AccType type;
+	@ManyToOne
 	@JoinColumn(name = "status")
 	private AccStatus status;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "accountTo")

@@ -13,8 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "acc_status")
-public class AccStatus implements Serializable {
+@Table(name = "acc_type")
+public class AccType implements Serializable {
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,7 +22,7 @@ public class AccStatus implements Serializable {
 
 	@Column(name = "name", length = 255, unique = true)
 	private String name;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "status")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "type")
 	private Set<Account> accounts;
 
 	public Integer getId() {
@@ -48,5 +48,4 @@ public class AccStatus implements Serializable {
 	public void setAccounts(Set<Account> accounts) {
 		this.accounts = accounts;
 	}
-
 }

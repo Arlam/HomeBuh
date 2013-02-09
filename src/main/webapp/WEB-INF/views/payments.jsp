@@ -1,5 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <table id="payments">
 	<tr>
@@ -11,9 +12,9 @@
 	</tr>
 	<c:forEach var="payment" items="${payments}">
 		<tr>
-			<td>${payment.date}</td>
-			<td>${payment.accountFrom}</td>
-			<td>${payment.accountTo}</td>
+			<td><fmt:formatDate value="${payment.payDate}" pattern="yyyy-MM-dd HH:mm" /></td>
+			<td>${payment.accountFrom.name}</td>
+			<td>${payment.accountTo.name}</td>
 			<td>${payment.description}</td>
 			<td>${payment.amount}</td>
 		</tr>

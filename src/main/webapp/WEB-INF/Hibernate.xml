@@ -27,7 +27,9 @@
 			<list>
 				<value>homebuh.entities.Account</value>
 				<value>homebuh.entities.AccStatus</value>
+				<value>homebuh.entities.AccType</value>
 				<value>homebuh.entities.Payment</value>
+				<value>homebuh.entities.PayStatus</value>
 			</list>
 		</property>
 

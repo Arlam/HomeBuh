@@ -1,6 +1,7 @@
 package homebuh.service;
 
 import homebuh.dao.AccountDAO;
+import homebuh.dao.GenericDAO;
 import homebuh.dao.PaymentDAO;
 import homebuh.entities.Payment;
 
@@ -10,13 +11,18 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class PaymentService {
+public class PaymentService extends GenericService<Payment> {
 
 	@Autowired
 	private PaymentDAO paymentDAO;
 
 	@Autowired
 	private AccountDAO accountDAO;
+
+	@Override
+	public GenericDAO<Payment> getDAO() {
+		return paymentDAO;
+	}
 
 	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public void addPayment(Payment payment) {
@@ -29,4 +35,5 @@ public class PaymentService {
 		accountDAO.update(payment.getAccountFrom());
 		accountDAO.update(payment.getAccountTo());
 	}
+
 }
