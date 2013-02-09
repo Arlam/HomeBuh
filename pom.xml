@@ -8,11 +8,15 @@
 	<name>Homebuh Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<properties>
+		<project.finalName>Homebuh</project.finalName>
+		<java.version>1.6</java.version>
 		<jstl.version>1.2</jstl.version>
-		<jstl.impl.version>1.2</jstl.impl.version>
 		<spring.version>3.1.3.RELEASE</spring.version>
 		<cglib.version>2.2</cglib.version>
 		<titles.version>2.1.2</titles.version>
+		<tomcat7.plugin.version>2.0</tomcat7.plugin.version>
+		<tomcat7.server.url>http://127.0.0.1:8080/manager/html</tomcat7.server.url>
+		<tomcat7.dynamic.port>8081</tomcat7.dynamic.port>
 	</properties>
 
 	<dependencies>
@@ -106,14 +110,14 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>Homebuh</finalName>
+		<finalName>${project.finalName}</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -123,9 +127,13 @@
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>2.0</version>
+				<version>${tomcat7.plugin.version}</version>
 				<configuration>
-					<path>/</path>
+					<url>${tomcat7.server.url}</url>
+					<port>${tomcat7.dynamic.port}</port>
+					<server>TomcatServer</server>
+					<path>/${project.finalName}</path>
+					<finalName></finalName>
 				</configuration>
 			</plugin>
 		</plugins>
