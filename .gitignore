@@ -5,3 +5,5 @@ target/
 .settings/
 loging.log
 src/main/webapp/WEB-INF/database.properties
+.idea/*
+HomeBuh.iml
