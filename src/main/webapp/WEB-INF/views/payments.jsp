@@ -2,13 +2,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<table id="payments">
+<table id="payments"  class="table table-striped table-bordered table-condensed span12">
 	<tr>
 		<th><spring:message code="label.payments.date" /></th>
 		<th><spring:message code="label.payments.accountFrom" /></th>
 		<th><spring:message code="label.payments.accountTo" /></th>
 		<th><spring:message code="label.payments.description" /></th>
-		<th><spring:message code="label.payments.ammount" /></th>
+		<th><spring:message code="label.payments.amount" /></th>
 	</tr>
 	<c:forEach var="payment" items="${payments}">
 		<tr>
